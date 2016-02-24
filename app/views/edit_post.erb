@@ -1,0 +1,8 @@
+<br>
+<form id="update_post" action="/update_post/<%= @id %>" method="post">
+  Title: <input type="text" name="title" value="<%= @title %>"><br><br>
+  Content: <textarea name="content" form="update_post" rows="10"> <%= @content %>
+  </textarea><br><br>
+  Tags: <input type="text" name="tags" placeholder="Start your tags with a #hashtag"><br><br>
+  <input type="submit" value="Save!">
+</form>

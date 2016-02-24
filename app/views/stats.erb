@@ -1,0 +1,30 @@
+<h2>Your stats.</h2>
+
+<table>
+  
+  <thead>
+    <th>Theme</th>
+    <th>Score</th>
+    <th>Date</th>
+  </thead>
+
+  <tbody>
+    <% sum = 0 %>
+    <% @rounds.each do |round| %>
+    <tr>
+      <td><%=Deck.find(round.deck_id).name%></td>
+      <td><%=round.score%>%</td>
+      <td><%=round.created_at%></td>
+      <% sum += round.score%>
+    </tr>
+    <% end %>
+
+  </tbody>
+
+</table>
+
+<% average = sum / @rounds.length %>
+<p>Your average score is: <%= average %>
+<a href="/game/<%=@user.id%>" class="button">New Game</a>
+<a href="/home" class="button">Home</a>
+<a href="/logout" class="button">Log out</a>
